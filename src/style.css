@@ -119,5 +119,17 @@
   margin-top: 10px;
 }
 .social-icon {
-  font-size: 32px;
+  display: block;
+  margin: auto;
+  width: 32px;
+}
+.social-link {
+  display: block;
+  text-align: center;
+}
+.icon-attribute {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
 }
