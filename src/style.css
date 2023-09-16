@@ -1,0 +1,120 @@
+.weather-advice {
+  font-size: 12px;
+}
+.card {
+  background: transparent;
+  border: none;
+  border-radius: 0%;
+}
+.container {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  min-width: 950px;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Noto Sans", sans-serif;
+}
+.dark {
+  background: linear-gradient(
+    to top,
+    rgb(184, 142, 252) 2.2%,
+    rgb(104, 119, 244) 100.2%
+  );
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Noto Sans", sans-serif;
+}
+.sun-icon {
+  font-size: 48px;
+  text-align: right;
+  padding-top: 30px;
+  padding-right: 40px;
+}
+.weekly-weather {
+  color: #47555d;
+  text-align: center;
+  padding-top: 10px;
+}
+.daily-weather {
+  background: linear-gradient(to top, #7bcbed 0%, #05b0ff 100%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.daily-weather-dark {
+  background: linear-gradient(to top, #8c6cc9 0%, #5a62bc 100%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.day {
+  color: #47555d;
+  font-family: "Noto Sans", sans-serif;
+}
+.night {
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+}
+.current-temp {
+  padding-top: 45px;
+  padding: 15px;
+  font-size: 72px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.day-of-week h6 {
+  font-size: 22px;
+}
+.day-of-week-dark h6 {
+  font-size: 22px;
+  color: white;
+}
+.weekly-min-temp-dark h6 {
+  font-size: 18px;
+  color: white;
+}
+.weekly-max-temp-dark h6 {
+  font-size: 22px;
+  color: white;
+}
+
+.weekly-min-temp h6 {
+  font-size: 18px;
+  color: #47555d;
+}
+.weekly-max-temp h6 {
+  font-size: 22px;
+  color: #47555d;
+}
+.weekly-icon h6 {
+  font-size: 64px;
+}
+.city-date-summary {
+  padding-right: 20px;
+  border-right: 3px solid #1280e8;
+}
+.city-date-summary-dark {
+  padding-right: 20px;
+  border-right: 3px solid #7e38b8;
+}
+.weather-status {
+  font-weight: bold;
+}
+#farenheit,
+#celsius,
+#type {
+  display: inline-block;
+  text-align: right;
+}
+#scale {
+  padding-left: 15px;
+}
+.main-button {
+  width: 150px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.current-location-button {
+  margin-top: 10px;
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="daily-weather">
+        <div class="row">
+          <div class="col-3">
+            <div class="card city-date-summary" style="width: 16rem">
+              <div class="card-body">
+                <h1 class="card-title text-end day" id="city-header-day">
+                  Enter a City
+                </h1>
+                <h6 class="card-subtitle text-end day" id="todays-date">
+                  Friday 9th August
+                </h6>
+                <br />
+                <h4
+                  class="card-text text-end weather-status day"
+                  id="weather-description"
+                ></h4>
+                <p class="weather-advice text-end" id="weather-advice-day">
+                  Use Sunscreen 🧴
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card" style="width: 12rem">
+              <div class="card-body">
+                <h1 class="current-temp day" id="temperature"></h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 sun-icon">
+            <i class="fa-solid fa-sun fa-2xl" style="color: #ffdb1f"></i>
+          </div>
+        </div>
+      </div>
+      <div class="weekly-weather">
+        <div class="row day-of-week">
+          <div class="col">
+            <h6>Fri</h6>
+          </div>
+          <div class="col">
+            <h6>Sat</h6>
+          </div>
+          <div class="col">
+            <h6>Sun</h6>
+          </div>
+          <div class="col">
+            <h6>Mon</h6>
+          </div>
+          <div class="col">
+            <h6>Tue</h6>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row weekly-icon">
+          <div class="col">
+            <h6>
+              <i class="fa-solid fa-sun" style="color: #ffdb1f"></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i class="fa-solid fa-sun" style="color: #ffdb1f"></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i class="fa-solid fa-cloud-sun" style="color: #ffdb1f"></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i class="fa-solid fa-cloud-sun-rain" style="color: #ffdb1f"></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i class="fa-solid fa-cloud-sun" style="color: #ffdb1f"></i>
+            </h6>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row weekly-max-temp">
+          <div class="col">
+            <h6>26°</h6>
+          </div>
+          <div class="col">
+            <h6>22°</h6>
+          </div>
+          <div class="col">
+            <h6>22°</h6>
+          </div>
+          <div class="col">
+            <h6>21°</h6>
+          </div>
+          <div class="col">
+            <h6>24°</h6>
+          </div>
+          <div class="col">
+            <div></div>
+          </div>
+        </div>
+        <div class="row weekly-min-temp">
+          <div class="col">
+            <h6>15°</h6>
+          </div>
+          <div class="col">
+            <h6>15°</h6>
+          </div>
+          <div class="col">
+            <h6>14°</h6>
+          </div>
+
+          <div class="col">
+            <h6>14°</h6>
+          </div>
+          <div class="col">
+            <h6>15°</h6>
+          </div>
+          <div class="col">
+            <div></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <input
+              id="city-search-box"
+              type="text"
+              class="form-control"
+              placeholder="Enter a City"
+              aria-label="Enter a City"
+            />
+          </div>
+          <div class="col-md-2">
+            <button
+              id="search-button-day"
+              type="button"
+              class="btn btn-primary main-button search-button"
+              style="
+                --bs-btn-padding-y: 0.5rem;
+                --bs-btn-padding-x: 2rem;
+                --bs-btn-font-size: 0.75rem;
+              "
+            >
+              Search
+            </button>
+            <button
+              id="current-location-button-day"
+              type="button"
+              class="btn btn-primary main-button current-location-button"
+              style="
+                --bs-btn-padding-y: 0.5rem;
+                --bs-btn-padding-x: 2rem;
+                --bs-btn-font-size: 0.75rem;
+              "
+            >
+              Current Location
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <div class="container dark">
+      <div class="daily-weather-dark">
+        <div class="row">
+          <div class="col-3">
+            <div class="card city-date-summary-dark" style="width: 16rem">
+              <div class="card-body">
+                <h1 class="card-title text-end night">London</h1>
+                <h6 class="card-subtitle text-end night">Friday 9th August</h6>
+                <br />
+                <h4 class="card-text text-end weather-status night">
+                  Clear Skies
+                </h4>
+                <p class="weather-advice text-end night">Stargaze ✨</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card" style="width: 12rem">
+              <div class="card-body">
+                <h1 class="current-temp night">15°</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card sun-icon">
+              <div class="card-body">
+                <i
+                  class="fa-solid fa-moon fa-flip-horizontal fa-2xl moon-icon"
+                  style="color: #fff5f5"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weekly-weather">
+        <div class="row day-of-week-dark">
+          <div class="col">
+            <h6>Fri</h6>
+          </div>
+          <div class="col">
+            <h6>Sat</h6>
+          </div>
+          <div class="col">
+            <h6>Sun</h6>
+          </div>
+          <div class="col">
+            <h6>Mon</h6>
+          </div>
+          <div class="col">
+            <h6>Tue</h6>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row weekly-icon">
+          <div class="col">
+            <h6>
+              <i
+                class="fa-solid fa-moon weekly-icon"
+                style="color: #fff5f5"
+              ></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i
+                class="fa-solid fa-moon weekly-icon"
+                style="color: #fff5f5"
+              ></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i
+                class="fa-solid fa-cloud-moon weekly-icon"
+                style="color: #fff5f5"
+              ></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i
+                class="fa-solid fa-cloud-moon-rain weekly-icon"
+                style="color: #fff5f5"
+              ></i>
+            </h6>
+          </div>
+          <div class="col">
+            <h6>
+              <i
+                class="fa-solid fa-cloud-moon weekly-icon"
+                style="color: #fff5f5"
+              ></i>
+            </h6>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row weekly-max-temp-dark">
+          <div class="col">
+            <h6>26°</h6>
+          </div>
+          <div class="col">
+            <h6>22°</h6>
+          </div>
+          <div class="col">
+            <h6>22°</h6>
+          </div>
+          <div class="col">
+            <h6>21°</h6>
+          </div>
+          <div class="col">
+            <h6>24°</h6>
+          </div>
+          <div class="col">
+            <div></div>
+          </div>
+        </div>
+        <div class="row weekly-min-temp-dark">
+          <div class="col">
+            <h6>15°</h6>
+          </div>
+          <div class="col">
+            <h6>15°</h6>
+          </div>
+          <div class="col">
+            <h6>14°</h6>
+          </div>
+          <div class="col">
+            <h6>14°</h6>
+          </div>
+          <div class="col">
+            <h6>15°</h6>
+          </div>
+          <div class="col">
+            <div></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter a City"
+              aria-label="Enter a City"
+            />
+          </div>
+          <div class="col-md-2">
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="
+                --bs-btn-padding-y: 0.5rem;
+                --bs-btn-padding-x: 2rem;
+                --bs-btn-font-size: 0.75rem;
+              "
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/1c65545e25.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/script.js"></script>
+  </body>
+</html>
